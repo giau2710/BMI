@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Average score</td>
+            <td>
+                <input type="number">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Rank" onclick="rank()">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        function rank() {
+            let averageScore = Number(document.getElementsByTagName("input")[0].value);
+            let msg = "";
+            switch (averageScore > 10 || averageScore < 0 ? -1 : Math.floor(averageScore)) {
+                case 10:
+                case 9:
+                    msg = `${averageScore} is excellent`;
+                    break;
+                case 8:
+                    msg = `${averageScore} is Good`;
+                    break;
+                case 7:
+                    msg = `${averageScore} is Pretty Good`;
+                    break;
+                case 6:
+                case 5:
+                    msg = `${averageScore} is medium`;
+                    break;
+                case 4:
+                case 3:
+                case 2:
+                case 1:
+                case 0:
+                    msg = `${averageScore} is bad`;
+                    break;
+                default:
+                    msg = `${averageScore} is invalid`;
+                    break;
+            }
+            document.getElementsByTagName("td")[3].innerHTML = `<h3>${msg}</h3>`;
+        }
+       
+
+    </script>
+</body>
+
+</html>
